@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Agyapong AI | Sales in Comfort</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/static/css/style.css?v=12">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            Christian Agyapong AI <i data-lucide="chevron-down" size="16" style="opacity: 0.5;"></i>
+        </div>
+        <div class="header-actions">
+            <button id="clearBtn" class="btn-icon-only" title="New Chat" style="margin-right: 1.5rem;">
+                <i data-lucide="plus" size="20"></i>
+            </button>
+            <div class="upgrade">
+                <i data-lucide="sparkles" size="16"></i> Upgrade
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero section shown when no messages -->
+        <div id="hero" class="hero">
+            Business sales in comfort.
+        </div>
+
+        <div class="chat-window" id="chat" style="display: none;">
+            <!-- Messages injected here -->
+        </div>
+
+        <div class="bottom-container">
+            <div id="examples">
+                <!-- Suggestion chips -->
+            </div>
+            
+            <div class="input-pill">
+                <textarea id="message" rows="1" placeholder="Ask Christian Agyapong AI anything..."></textarea>
+                <div class="input-actions">
+                    <button id="sendBtn" class="btn-circle">
+                        <i data-lucide="arrow-up" size="18"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="/static/js/app.js?v=12"></script>
+</body>
+</html>

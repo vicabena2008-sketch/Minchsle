@@ -1,5 +1,5 @@
-gradio
-fastembed
+flask
+sentence-transformers
 faiss-cpu
 numpy
 langchain

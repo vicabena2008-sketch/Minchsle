@@ -19,7 +19,7 @@ DEFAULT_SAFETY_Q = " Is there anything else I can help you with today?"
 
 def chat(user_query: str, state: ConversationState) -> str:
     if not user_query.strip():
-        return "Welcome to Min Chale! How can I help you today?"
+        return "Welcome! I am Christian Agyapong AI. How can I help you today?"
 
     # 1. Retrieve
     retrieved   = retrieve_context(user_query, top_k=5)
@@ -50,11 +50,11 @@ def chat(user_query: str, state: ConversationState) -> str:
 {followup_instr}
 ══ END INSTRUCTION ══
 
-Previous Conversation:
-{state.history_str()}
+══ STATE AWARENESS & HISTORY ══
+{state.history_str(last_n=10)}
 
 Customer: {user_query}
-Min Chale AI:"""
+Christian Agyapong AI:"""
 
     # 5. LLM call
     response_obj = llm.invoke(full_prompt)

@@ -1,96 +1,74 @@
 """
 knowledge_base.py
-All product/shop data for Min Chale.
+All product/shop data for Christian Agyapong Sales.
 To add a product: add a new dict to `business_data`.
 """
 
+# The RAG system searches through this list to find answers.
+# Each item has 'category', 'brand', 'content' (description/specs/price).
 business_data = [
-    # ── SHOP IDENTITY ─────────────────────────────────────
+    # ── SHOP INFO ─────────────────────────────────────────
     {
-        "category": "shop", "brand": "Min Chale",
-        "in_stock": True, "stock_count": None,
+        "category": "shop", "brand": "Christian Agyapong Sales",
+        "in_stock": True, "stock_count": 1,
         "content": (
-            "Min Chale is a multi-category retail platform with stores in Osu and Tema, Accra. "
-            "We sell Tech, Fashion, Food, Home Appliances, Beauty, and more with fast nationwide "
-            "delivery across all 16 regions of Ghana."
+            "Christian Agyapong Sales is a multi-category retail platform with stores in Osu and Tema, Accra. "
+            "We offer a wide range of products including Tech, Fashion, Food, Home, and Beauty items. "
+            "Business Sales in Comfort is our mission."
+        ),
+    },
+    {
+        "category": "shop", "brand": "Contact & Delivery",
+        "in_stock": True, "stock_count": 1,
+        "content": (
+            "WhatsApp: +233 5576 183 62. Delivery available within Accra/Tema for GHS 20-50 "
+            "depending on distance. Same-day delivery for orders before 12 PM."
         ),
     },
 
     # ── TECH ──────────────────────────────────────────────
     {
         "category": "tech", "brand": "Samsung",
-        "in_stock": True, "stock_count": 18,
+        "in_stock": True, "stock_count": 15,
         "content": (
-            "Official partner. Galaxy S24 Ultra (GHS 8,500), S23 (GHS 6,200), "
-            "A35 (GHS 3,200), A15 (GHS 1,800), Galaxy Tabs from GHS 2,800."
+            "Samsung Galaxy A05 (GHS 1,150), A15 (GHS 1,850), A35 (GHS 3,200), A55 (GHS 4,100). "
+            "All come with 12 months warranty."
         ),
     },
     {
-        "category": "tech", "brand": "Apple",
-        "in_stock": True, "stock_count": 7,
+        "category": "tech", "brand": "Infinix",
+        "in_stock": True, "stock_count": 12,
+        "content": "Infinix Hot 40i (GHS 1,450), Note 40 Pro (GHS 3,850). Fast charging supported.",
+    },
+    {
+        "category": "tech", "brand": "Tecno",
+        "in_stock": True, "stock_count": 10,
+        "content": "Tecno Spark 20 (GHS 1,200), Camon 30 (GHS 2,950). Excellent camera quality.",
+    },
+    {
+        "category": "tech", "brand": "Laptops",
+        "in_stock": True, "stock_count": 8,
         "content": (
-            "iPhone 16 from GHS 7,800, iPhone 15 from GHS 6,200, "
-            "MacBook Air M2/M3 from GHS 9,500, MacBook Pro from GHS 14,500, AirPods from GHS 950."
+            "Lenovo IdeaPad 3 (i3, 8GB RAM, 256GB SSD) - GHS 3,800. "
+            "HP Laptop 15 (i5, 16GB RAM, 512GB SSD) - GHS 5,200."
         ),
     },
     {
-        "category": "tech", "brand": "HP & Lenovo",
-        "in_stock": True, "stock_count": 14,
-        "content": (
-            "HP Pavilion (GHS 4,200+), Victus Gaming (GHS 7,500+), EliteBook from GHS 5,800. "
-            "Lenovo IdeaPad from GHS 3,800, ThinkPad series available."
-        ),
-    },
-    {
-        "category": "tech", "brand": "Infinix Tecno and Itel",
-        "in_stock": True, "stock_count": 35,
-        "content": (
-            "Infinix Hot series (GHS 1,450-3,500), Tecno Spark and Camon (GHS 1,200-4,500), "
-            "Itel phones from GHS 850. Very popular budget phones."
-        ),
-    },
-    {
-        "category": "tech", "brand": "Accessories",
-        "in_stock": True, "stock_count": 60,
-        "content": (
-            "Power banks (GHS 120-650), Earphones and Headphones (GHS 80-850), "
-            "Phone cases and screen protectors (GHS 50-350), Bluetooth speakers (GHS 150-1,200), "
-            "Laptop bags (GHS 180-650)."
-        ),
-    },
-    {
-        "category": "tech", "brand": "Smart TV",
-        "in_stock": False, "stock_count": 0,
-        "content": (
-            "Smart TVs (Samsung, LG) 32-inch to 65-inch. Prices from GHS 2,200 to GHS 8,500. "
-            "Currently out of stock; restock expected soon."
-        ),
+        "category": "tech", "brand": "Television",
+        "in_stock": True, "stock_count": 5,
+        "content": "Samsung 43-inch Smart UHD TV (GHS 4,500). Hisense 55-inch 4K Smart TV (GHS 5,800).",
     },
 
     # ── FASHION ───────────────────────────────────────────
     {
-        "category": "fashion", "brand": "Shirts and Tops",
-        "in_stock": True, "stock_count": 80,
-        "content": (
-            "Plain T-shirts (GHS 80-280), Polo shirts (GHS 150-380), "
-            "Corporate and Oxford shirts (GHS 200-520). Custom printing and embroidery available."
-        ),
+        "category": "fashion", "brand": "Men's Wear",
+        "in_stock": True, "stock_count": 50,
+        "content": "Polo shirts (GHS 120), Formal shirts (GHS 150), Suits (GHS 850+). Variety of sizes.",
     },
     {
-        "category": "fashion", "brand": "Traditional Wear",
-        "in_stock": True, "stock_count": 22,
-        "content": (
-            "Kente, Smock, Agbada, Senator, and Kaftan styles. "
-            "Prices from GHS 450 to GHS 2,800. Ready-made and made-to-measure options."
-        ),
-    },
-    {
-        "category": "fashion", "brand": "Footwear and Bags",
+        "category": "fashion", "brand": "Women's Wear",
         "in_stock": True, "stock_count": 45,
-        "content": (
-            "Sneakers (GHS 250-850), Corporate shoes (GHS 300-850), "
-            "Ladies heels and flats (GHS 200-750), Quality handbags and backpacks (GHS 180-1,200)."
-        ),
+        "content": "Dresses (GHS 180-450), Handbags (GHS 250+), Heels (GHS 300). Premium quality.",
     },
     {
         "category": "fashion", "brand": "Jeans and Trousers",
@@ -111,73 +89,20 @@ business_data = [
         "category": "food", "brand": "Snacks",
         "in_stock": True, "stock_count": 150,
         "content": (
-            "Chin Chin, Bofrot, Plantain Chips, Groundnut, Biscuits, Cakes from GHS 25 per pack. "
-            "Wholesale packages for events and schools."
-        ),
-    },
-    {
-        "category": "food", "brand": "Packaged Meals",
-        "in_stock": True, "stock_count": 30,
-        "content": (
-            "Jollof Rice, Waakye, Banku with Tilapia or Chicken, Fried Rice. "
-            "Suitable for offices, events and home delivery in Accra."
+            "Plantain chips, Chin chin, Biscuit packs, Chocolate, Soft drinks, Bottled water. "
+            "Sold in packs and singles."
         ),
     },
 
-    # ── HOME & APPLIANCES ─────────────────────────────────
+    # ── HOME & BEAUTY ─────────────────────────────────────
     {
         "category": "home", "brand": "Appliances",
-        "in_stock": True, "stock_count": 25,
-        "content": (
-            "Standing Fans (GHS 350-950), Blenders (GHS 280-750), Rice Cookers (GHS 250-650), "
-            "Electric Kettles (GHS 150-380), Irons (GHS 180-480), Refrigerators from GHS 2,800."
-        ),
-    },
-
-    # ── BEAUTY ────────────────────────────────────────────
-    {
-        "category": "beauty", "brand": "Cosmetics and Hair",
-        "in_stock": True, "stock_count": 55,
-        "content": (
-            "Skincare (Nivea, Ponds), Hair extensions, Wigs, Makeup kits, "
-            "Perfumes, Soaps, Lotions. Popular brands available at good prices."
-        ),
-    },
-
-    # ── PAYMENT, DELIVERY & POLICIES ──────────────────────
-    {
-        "category": "payment", "brand": "Payment Options",
-        "in_stock": True, "stock_count": None,
-        "content": (
-            "MTN MoMo, Vodafone Cash, AirtelTigo Money, Bank Transfer, "
-            "Cash on Delivery (Accra and Tema), Card payments in physical stores."
-        ),
+        "in_stock": True, "stock_count": 10,
+        "content": "Microwaves (GHS 1,200), Blenders (GHS 450), Irons (GHS 250), Kettles (GHS 180).",
     },
     {
-        "category": "delivery", "brand": "Nationwide Delivery",
-        "in_stock": True, "stock_count": None,
-        "content": (
-            "Accra and Tema: Same day or Next day (GHS 30-80). "
-            "Other regions: 1-4 business days (GHS 60-250 depending on weight and location). "
-            "Tracking available."
-        ),
-    },
-    {
-        "category": "warranty", "brand": "Warranty Policy",
-        "in_stock": True, "stock_count": None,
-        "content": (
-            "Tech and Home appliances come with minimum 3 months shop warranty plus "
-            "manufacturer warranty where applicable. Fashion, Food and Beauty items are "
-            "non-returnable except for defects."
-        ),
-    },
-    {
-        "category": "recommendation", "brand": "Special Offers",
-        "in_stock": True, "stock_count": None,
-        "content": (
-            "We offer personalized recommendations based on budget and purpose. "
-            "Students get special discounts on laptops, shirts, accessories and snacks. "
-            "Bulk buyers enjoy wholesale pricing."
-        ),
+        "category": "beauty", "brand": "Skincare",
+        "in_stock": True, "stock_count": 30,
+        "content": "Body lotions, Face creams, Sunscreen, Serums. Brands: Nivea, Neutrogena, Cerave.",
     },
 ]
