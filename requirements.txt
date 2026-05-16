@@ -1,0 +1,10 @@
+gradio
+sentence-transformers
+faiss-cpu
+numpy
+langchain
+langchain-groq
+langchain-core
+torch
+huggingface-hub
+python-dotenv

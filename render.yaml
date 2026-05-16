@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: minchale-ai
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false        # you'll paste this in the Render dashboard
+      - key: PYTHON_VERSION
+        value: "3.11.0"
