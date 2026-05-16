@@ -8,7 +8,7 @@ import faiss
 # pyrefly: ignore [missing-import]
 import numpy as np
 # pyrefly: ignore [missing-import]
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 from knowledge_base import business_data
 
 RELEVANCE_THRESHOLD = 0.30
@@ -37,10 +37,11 @@ for item in business_data:
 
 # ── Embedding model + FAISS index ─────────────────────────────────────────────
 print("Loading embedding model...")
-embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+embedding_model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 print("Encoding documents...")
-embeddings = embedding_model.encode(documents, show_progress_bar=True)
+embeddings_list = list(embedding_model.embed(documents))
+embeddings = np.array(embeddings_list, dtype=np.float32)
 faiss.normalize_L2(embeddings)
 
 index = faiss.IndexFlatIP(embeddings.shape[1])
@@ -54,7 +55,8 @@ def retrieve_context(user_query: str, top_k: int = 5) -> list[tuple]:
     if not user_query.strip():
         return []
 
-    q_emb = embedding_model.encode([user_query], convert_to_numpy=True)
+    q_emb_list = list(embedding_model.embed([user_query]))
+    q_emb = np.array(q_emb_list, dtype=np.float32)
     faiss.normalize_L2(q_emb)
     scores, indices = index.search(q_emb.astype(np.float32), top_k)
 

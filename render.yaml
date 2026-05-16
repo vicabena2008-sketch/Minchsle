@@ -2,14 +2,14 @@ services:
   - type: web
     name: minchale-ai
     runtime: python
-    buildCommand: pip install -r requirements.txt && python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+    buildCommand: pip install -r requirements.txt && python -c "from fastembed import TextEmbedding; TextEmbedding(model_name='sentence-transformers/all-MiniLM-L6-v2')"
     startCommand: python app.py
     envVars:
       - key: GROQ_API_KEY
-        sync: false        # you'll paste this in the Render dashboard
+        sync: false # you'll paste this in the Render dashboard
       - key: PYTHON_VERSION
         value: "3.11.0"
       - key: HF_HOME
-        value: ".hf_cache"
+        value: "hf_cache."
       - key: PYTHONUNBUFFERED
         value: "1"

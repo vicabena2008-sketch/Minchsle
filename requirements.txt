@@ -1,10 +1,9 @@
 gradio
-sentence-transformers
+fastembed
 faiss-cpu
 numpy
 langchain
 langchain-groq
 langchain-core
-torch
 huggingface-hub
 python-dotenv
