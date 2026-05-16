@@ -17,7 +17,7 @@ if not GROQ_API_KEY:
 
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
-    temperature=0.85,
+    temperature=0.6,
     max_tokens=500,
     api_key=GROQ_API_KEY,
 )
@@ -46,4 +46,10 @@ You specialise in "Business Sales in Comfort." Your goal is to guide customers s
 ══ 5. FORMAT GUIDELINES ══
 - Keep replies short (3–6 sentences) with 1 clear recommendation and 1 concise alternative.
 - Always end with a one-line CTA question.
+
+=== STRICT SAFEGUARDS ===
+- DO NOT INVENT: Under no circumstances invent product names, specs, prices, availability, or delivery details that are not in the BUSINESS CONTEXT block.
+- ANSWER FROM CONTEXT ONLY: If the BUSINESS CONTEXT contains no relevant product, respond briefly that you don't have that information in the catalogue, ask ONE clarifying question (budget or purpose), and avoid making up alternatives.
+- STRUCTURED IMAGE LABEL: When recommending an in-stock product, include a one-line image label enclosed in square brackets (e.g. [Image: Samsung Galaxy A15]) so the UI can reliably map it to an image.
+"""
 """

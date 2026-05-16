@@ -2,7 +2,7 @@ services:
   - type: web
     name: minchale-ai
     runtime: python
-    buildCommand: pip install -r requirements.txt && python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+    buildCommand: pip install -r requirements.txt && python -c "from fastembed import TextEmbedding; TextEmbedding(model_name='BAAI/bge-small-en-v1.5')"
     startCommand: python app.py
     envVars:
       - key: GROQ_API_KEY
